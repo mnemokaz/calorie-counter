@@ -1,5 +1,6 @@
 (function () {
   const calculate = document.querySelector('.form__submit-button');
+  const reset = document.querySelector('.form__reset-button');
   
 
   const gender = document.querySelector('.gender');
@@ -42,7 +43,27 @@
   calculate.addEventListener('click', (evt) => {
     evt.preventDefault()
     module.classList.remove("counter__result--hidden")
-     })
+     });
+
+     inputAge.addEventListener('input', () => {
+      personalInfo.age = inputAge.value
+     if( personalInfo.age > 0 || personalInfo.height > 0 || personalInfo.weight > 0 ) {reset.disabled = false}
+      else {reset.disabled = true}
+    }) ;
+
+    inputHeight.addEventListener('input', () => {
+      personalInfo.height = inputHeight.value
+     if( personalInfo.age > 0 || personalInfo.height > 0 || personalInfo.weight > 0 ) {reset.disabled = false}
+      else {reset.disabled = true}
+    }) ;
+
+    inputWeight.addEventListener('input', () => {
+      personalInfo.weight = inputWeight.value
+     if( personalInfo.age > 0 || personalInfo.height > 0 || personalInfo.weight > 0 ) {reset.disabled = false}
+      else {reset.disabled = true}
+    }) ;
+
+
 
 
 })()
