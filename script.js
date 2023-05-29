@@ -5,7 +5,7 @@
   const gender = document.querySelector('.gender');
   const parameters = document.querySelector('.inputs-group');
   const activity = document.querySelector('.radios-group');
-
+  const module = document.querySelector('.counter__result');
 
   const personalInfo = {
     isMale: true,
@@ -37,5 +37,13 @@
     personalInfo.weight = inputWeight.value
    if( personalInfo.age > 0 && personalInfo.height > 0 && personalInfo.weight > 0 ) {calculate.disabled = false}
     else {calculate.disabled = true}
-  }) 
+  }) ;
+
+  calculate.addEventListener('click', (evt) => {
+    evt.preventDefault()
+    module.classList.remove("counter__result--hidden")
+     })
+
+
 })()
+
