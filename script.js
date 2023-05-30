@@ -33,6 +33,8 @@
   const inputMax = document.getElementById("activity-maximal");
   
   const calNorm= document.getElementById("calories-norm");
+  const weightGain = document.getElementById("calories-maximal");
+  const weightLoss = document.getElementById("calories-minimal");
  
   inputAge.addEventListener('input', () => {
     personalInfo.age = inputAge.value
@@ -92,7 +94,8 @@
     const femaleCalTotal = (10 * personalInfo.weight) + (6.25 * personalInfo.height) - (5 * personalInfo.age) - 161;
     const maleCalTotal = (10 *  personalInfo.weight) + (6.25 * personalInfo.height) - (5 * personalInfo.age) + 5;
     calNorm.innerHTML = Math.floor(personalInfo.activity * (personalInfo.isMale ? maleCalTotal : femaleCalTotal))
-
+    weightGain.innerHTML = Math.floor((personalInfo.activity * (personalInfo.isMale ? maleCalTotal : femaleCalTotal)) * 0.15 + (personalInfo.activity * (personalInfo.isMale ? maleCalTotal : femaleCalTotal)));
+    weightLoss.innerHTML = Math.floor((personalInfo.activity * (personalInfo.isMale ? maleCalTotal : femaleCalTotal)) - (personalInfo.activity * (personalInfo.isMale ? maleCalTotal : femaleCalTotal) * 0.15));
 
      });
 
